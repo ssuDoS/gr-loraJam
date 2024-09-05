@@ -12,12 +12,9 @@
 install(FILES
     api.h
     frameDetect.h 
-    utilities.h
     jammer.h
     mux.h
     trigger.h
     payloadProcessing.h
-    triggerPmt.h
-    jammerPmt.h
-    bytes2Pmt.h DESTINATION include/gnuradio/loraJam
+    DESTINATION include/gnuradio/loraJam
 )
