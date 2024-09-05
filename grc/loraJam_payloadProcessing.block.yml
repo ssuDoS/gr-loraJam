@@ -1,0 +1,36 @@
+id: loraJam_payloadProcessing
+label: payloadProcessing
+category: '[loraJam]'
+
+templates:
+  imports: from gnuradio import loraJam
+  make: loraJam.payloadProcessing(${sf}, ${cr}, ${jam_sb_cnt}, ${pay_len}, ${output_path})
+
+parameters:
+- id: sf
+  label: SF
+  dtype: int
+  default: 7
+- id: cr
+  label: CR
+  dtype: int
+  default: 1
+- id: jam_sb_cnt
+  label: Jamming Symbols
+  dtype: int
+  default: 0
+- id: pay_len
+  label: Expected payload length
+  dtype: int
+  default: 184
+- id: output_path
+  label: Output path
+  dtype: string
+  default: {"/home/ziree/research_experiments/lora_jamming"}
+
+inputs:
+- label: in
+  domain: stream
+  dtype: byte
+
+file_format: 1

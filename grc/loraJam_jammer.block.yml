@@ -1,0 +1,38 @@
+id: loraJam_jammer
+label: jammer
+category: '[loraJam]'
+flags: [python,cpp]
+
+templates:
+  imports: from gnuradio import loraJam
+  make: loraJam.jammer(${sf}, ${samp_rate}, ${bw})
+
+asserts:
+- ${ (samp_rate/bw).is_integer()}
+
+parameters:
+- id: sf
+  label: SF
+  dtype: int
+
+- id: samp_rate
+  label: Sample Rate
+  dtype: int
+  default: 250000
+
+- id: bw
+  label: Bandwidth
+  dtype: int
+  default: 125000
+
+inputs:
+- label: in
+  domain: stream
+  dtype: int
+
+outputs:
+- label: out
+  domain: stream
+  dtype: complex
+
+file_format: 1

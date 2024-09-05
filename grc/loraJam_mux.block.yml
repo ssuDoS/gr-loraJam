@@ -1,0 +1,54 @@
+id: loraJam_mux
+label: mux
+category: '[loraJam]'
+flags: [python,cpp]
+
+
+templates:
+  imports: from gnuradio import loraJam
+  make: loraJam.mux(${samp_rate}, ${bw})
+
+asserts:
+- ${ (samp_rate/bw).is_integer()}
+
+parameters:
+- id: samp_rate
+  label: Sample Rate
+  dtype: int
+  default: "samp_rate"
+- id: bw
+  label: Bandwidth
+  dtype: int
+  default: 125000
+
+inputs:
+- label: sf_7
+  domain: stream
+  dtype: complex
+  optional: 1
+- label: sf_8
+  domain: stream
+  dtype: complex
+  optional: 1
+- label: sf_9
+  domain: stream
+  dtype: complex
+  optional: 1
+- label: sf_10
+  domain: stream
+  dtype: complex
+  optional: 1
+- label: sf_11
+  domain: stream
+  dtype: complex
+  optional: 1
+- label: sf_12
+  domain: stream
+  dtype: complex
+  optional: 1
+
+outputs:
+- domain: stream
+  dtype: complex
+
+file_format: 1

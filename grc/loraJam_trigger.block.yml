@@ -1,0 +1,73 @@
+id: loraJam_trigger
+label: trigger
+category: '[loraJam]'
+
+templates:
+  imports: from gnuradio import loraJam
+  make: loraJam.trigger(${incl_cr0}, ${verbose}, ${cr1_symb_cnt}, ${cr2_symb_cnt}, ${cr3_symb_cnt}, ${cr4_symb_cnt})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#     * default
+parameters:
+- id: incl_cr0
+  label: Include CR0
+  dtype: enum
+  options: ['True', 'False']
+  default: 'False'
+- id: verbose
+  label: Verbose
+  dtype: enum
+  options: ['True', 'False']
+  default: 'True'
+- id: cr1_symb_cnt
+  label: Nb Symbol on CR1
+  dtype: int
+  default: 0
+- id: cr2_symb_cnt
+  label: Nb Symbol on CR2
+  dtype: int
+  default: 0
+- id: cr3_symb_cnt
+  label: Nb Symbol on CR3
+  dtype: int
+  default: 0
+- id: cr4_symb_cnt
+  label: Nb Symbol on CR4
+  dtype: int
+  default: 0
+
+inputs:
+- label: msg_in
+  domain: message
+  
+outputs:
+- label: SF 7
+  domain: stream
+  dtype: int
+  optional: 1
+- label: SF 8
+  domain: stream
+  dtype: int
+  optional: 1
+- label: SF 9
+  domain: stream
+  dtype: int
+  optional: 1
+- label: SF 10
+  domain: stream
+  dtype: int
+  optional: 1
+- label: SF 11
+  domain: stream
+  dtype: int
+  optional: 1
+- label: SF 12
+  domain: stream
+  dtype: int
+  optional: 1
+
+file_format: 1

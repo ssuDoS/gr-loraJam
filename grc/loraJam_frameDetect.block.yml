@@ -1,0 +1,58 @@
+id: loraJam_frameDetect
+label: frameDetect
+category: '[loraJam]'
+flags: [python,cpp]
+
+templates:
+  imports: from gnuradio import loraJam
+  make: loraJam.frameDetect(${center_freq}, ${bandwidth}, ${sf}, ${sync_word}, ${os_factor}, ${preamb_len})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#     * default
+parameters:
+- id: center_freq
+  label: Center freq
+  dtype: int
+- id: bandwidth
+  label: Bandwidth
+  dtype: int  
+- id: sf
+  label: Sf
+  dtype: int
+- id: sync_word
+  label: Sync word
+  dtype: int_vector 
+  default: 0x12
+  hide: part
+- id: os_factor
+  label: Os factor
+  dtype: int
+  default: 4
+- id: preamb_len
+  label: Preamble Length
+  dtype: int
+  default: 8
+  hide: part
+
+
+#  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
+#  Keys include:
+#      * label (an identifier for the GUI)
+#      * domain (optional - stream or message. Default is stream)
+#      * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#      * vlen (optional - data stream vector length. Default is 1)
+#      * optional (optional - set to 1 for optional inputs. Default is 0)
+inputs:
+-   domain: stream
+    dtype: complex
+
+outputs:
+-   domain: message
+    label: detect_out
+
+
+file_format: 1

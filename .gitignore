@@ -1,0 +1,8 @@
+build/*
+lib/*Pmt*
+lib/lib*
+grc/loraJam*Pmt*
+python/loraJam/*Pmt*
+python/loraJam/bindings/*Pmt*
+python/loraJam/bindings/docstrings/*Pmt*
+include/gnuradio/loraJam/*Pmt*
