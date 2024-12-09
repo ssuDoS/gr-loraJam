@@ -5,9 +5,7 @@
 This a GNU Radio implementation of a LoRaWAN Reactive Jammer. It was designed in the scope of an experiment aiming at finding the number of jamming symbols required to spoil the network throughput to a certain level, considering different network parameters.
 It provides an interface for setting in advance the number of symbols transmitted by the jammer, for each possible coding rate (CR) value detected in the frame header.
 
-<div style="text-align: center;"> 
-    ![Jammer blocks flowgraph](images/loraJam-gnuradio.png)
-</div>
+![Jammer blocks flowgraph](images/loraJam-gnuradio.png)
 
 It is composed of three blocks []:
 
